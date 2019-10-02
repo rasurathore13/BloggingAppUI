@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,13 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  isNewUser = true;
+
+  constructor(private http: HttpClient, private router: Router) { 
+    if(sessionStorage.getItem('auth_token') !== null) {
+      this.isNewUser = false;
+    }
+  }
 
   ngOnInit() {
     let requestHeaders: HttpHeaders = new HttpHeaders();
@@ -17,7 +24,20 @@ export class HomeComponent implements OnInit {
     const url = "https://blueiq3-dev-customerregistration-api.azurewebsites.net/api/Customer/GetTenantDetails"
     this.http.get(url, {
       headers: requestHeaders,
-    }).subscribe(Response => {console.log(Response)});
+    }).subscribe(Response => {});
+  }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
+
+  logout() {
+    sessionStorage.clear();
+    window.location.reload();
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 
 }
