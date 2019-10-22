@@ -1,0 +1,19 @@
+.hero-image{
+    background-image: url('/assets/jumbotron.jpg');
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+}
+
+.hero-text{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 150px;
+}
