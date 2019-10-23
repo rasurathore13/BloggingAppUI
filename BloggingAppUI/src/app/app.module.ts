@@ -12,7 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { BigCardComponent } from './cards/big-card/big-card.component';
+import { MediumCardComponent } from './cards/medium-card/medium-card.component';
+import { SmallCardComponent } from './cards/small-card/small-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    BigCardComponent,
+    MediumCardComponent,
+    SmallCardComponent
   ],
   imports: [
     BrowserModule,
