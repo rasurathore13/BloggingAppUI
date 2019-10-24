@@ -9,8 +9,15 @@
         </div>
     </div>
     <div class="blog-list">
-        <ul *ngFor="let blog of blogList">
-            <li>{{blog.blogId}}</li>
-        </ul>
+        <div class="container">
+            <div *ngFor="let blogObject of blogList ">
+                <app-big-card [blogObject]="blogObject">
+                </app-big-card>
+            </div>
+        </div>
+        <div class="pagination">
+            <pagination-controls (pageChange)="pageNumber = $event">
+            </pagination-controls>
+        </div>
     </div>
 </div>
