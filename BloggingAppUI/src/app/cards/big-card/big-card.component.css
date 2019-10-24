@@ -1,11 +1,30 @@
-.custom-card{
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    cursor: pointer;
-    border-radius: 5px;
+.customcard{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.5s;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
 }
 
-.card-image{
+.customcard:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 0px rgba(0,0,0,0.6);
+    
+}
+
+.pd-rt-lt-0{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.cardimage{
+    height: 400px;
     width:100%;
+}
+
+.cardbody{
+    background-color: white;
+}
+.cardbody .container{
+    padding: 40px 50px;
+
 }
