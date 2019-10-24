@@ -1,4 +1,11 @@
-
-.container-full{
+.custom-card{
     width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card-image{
+    width:100%;
 }

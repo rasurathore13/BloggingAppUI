@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-big-card',
@@ -8,11 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BigCardComponent implements OnInit {
   @Input() blogObject: any;
 
-  constructor() {
+  constructor(private router: Router) {
    }
 
   ngOnInit() {
-    console.log(this.blogObject['blogMainImageUrl']);
+  }
+
+  redirectToFullBlog() {
+    const wrongUrl = "wrongUrl";
+    let newUrl = "/".concat(wrongUrl);
+    debugger;
+    this.router.navigate([newUrl]);
   }
 
 }

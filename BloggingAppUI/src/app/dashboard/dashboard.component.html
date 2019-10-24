@@ -8,16 +8,12 @@
             </p>
         </div>
     </div>
-    <div class="blog-list">
         <div class="container">
-            <div *ngFor="let blogObject of blogList ">
+            <div *ngFor="let blogObject of blogList | paginate: {itemsPerPage: 2, currentPage: pageNumber} ">
                 <app-big-card [blogObject]="blogObject">
                 </app-big-card>
             </div>
-        </div>
-        <div class="pagination">
-            <pagination-controls (pageChange)="pageNumber = $event">
+            <pagination-controls (pageChange)="pageNumber = $event" class="centre">
             </pagination-controls>
         </div>
-    </div>
 </div>

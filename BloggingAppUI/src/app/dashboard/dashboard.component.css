@@ -23,13 +23,6 @@
     font-size: 35px;
 }
 
-.blog-list{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.pagination{
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
+.centre{
+    text-align:center;
 }
