@@ -26,5 +26,8 @@
 }
 .cardbody .container{
     padding: 40px 50px;
-
+}
+.cardauthor{
+    position: absolute;
+    bottom: 5%;
 }
