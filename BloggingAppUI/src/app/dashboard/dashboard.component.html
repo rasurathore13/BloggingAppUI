@@ -8,7 +8,7 @@
             </p>
         </div>
     </div>
-        <div class="container">
+        <div class="container pd-bt-5">
             <div *ngFor="let blogObject of blogList | paginate: {itemsPerPage: 2, currentPage: pageNumber} ">
                 <app-big-card [blogObject]="blogObject">
                 </app-big-card>
