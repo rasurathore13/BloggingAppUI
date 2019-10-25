@@ -16,8 +16,9 @@
     left: 35%;
     transform: translate(-50%, -50%);
     color: black;
-    font-family: 'Oswald', sans-serif;
-    font-size: 150px;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 900;
+
 }
 
 .hero-text p {
