@@ -1,14 +1,33 @@
+<title>{{blogDetailsObject.blogHeading}}</title>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <img src={{blogDetailsObject.blogMainImageUrl}} class="blogmainimage">
+        <figure>
+            <div [ngStyle]="{'background-image': getMainImageUrl()}" class="blogmainimage">
+            </div>
+        </figure>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2>
-                {{blogDetailsObject.blogHeading}}
-            </h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="blogmainheading">
+                            {{blogDetailsObject.blogHeading}}
+                            <br>
+                        </h2>
+                        <span class="blogauthor">
+                            {{blogDetailsObject.blogAuthor}} , {{blogDetailsObject.blogDateTimeStamp | date : "d MMMM y"}}
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

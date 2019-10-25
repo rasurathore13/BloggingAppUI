@@ -1,4 +1,4 @@
-
+<title>BLOG</title>
 <div class="h-100">
     <div class="hero-image">
         <div class="hero-text">
@@ -8,7 +8,7 @@
         </div>
     </div>
         <div class="container pd-bt-5">
-            <div *ngFor="let blogObject of blogList | paginate: {itemsPerPage: 1, currentPage: pageNumber} ">
+            <div *ngFor="let blogObject of blogList | paginate: {itemsPerPage: 10, currentPage: pageNumber} ">
                 <app-big-card [blogObject]="blogObject" (click)="openBlog(blogObject.blogId)">
                 </app-big-card>
             </div>

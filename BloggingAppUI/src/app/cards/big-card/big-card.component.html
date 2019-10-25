@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row customcard">
         <div class="col-md-7 pd-rt-lt-0">
-            <img src="{{blogObject.blogMainImageUrl}}" class="cardimage">
+            <div [ngStyle]="{'background-image': getMainImageUrl()}" class="cardimage">
+            </div>
         </div>
         <div class="col-md-5 cardbody pd-rt-lt-0">
             <div class="container">

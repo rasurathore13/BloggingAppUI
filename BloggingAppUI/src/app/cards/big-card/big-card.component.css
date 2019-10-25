@@ -20,6 +20,10 @@
     min-height: 400px;
     height: 100%;
     width:100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
 }
 
 .cardbody{

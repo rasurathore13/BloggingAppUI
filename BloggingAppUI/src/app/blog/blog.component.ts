@@ -17,8 +17,11 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this._blogService.getBlogDetails(this._activatedRoute.snapshot.params['blogId']).subscribe(response => {
         this.blogDetailsObject = response;
-        console.log(this.blogDetailsObject)
       });
+  }
+
+  getMainImageUrl() {
+    return "url('"+ this.blogDetailsObject['blogMainImageUrl'] +"')";
   }
 
 }
