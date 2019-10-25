@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -18,6 +19,7 @@ import { BigCardComponent } from './cards/big-card/big-card.component';
 import { MediumCardComponent } from './cards/medium-card/medium-card.component';
 import { SmallCardComponent } from './cards/small-card/small-card.component';
 import { BlogComponent } from './blog/blog.component';
+import { AddBlogComponent } from './add-blog/add-blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { BlogComponent } from './blog/blog.component';
     BigCardComponent,
     MediumCardComponent,
     SmallCardComponent,
-    BlogComponent
+    BlogComponent,
+    AddBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { BlogComponent } from './blog/blog.component';
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
     NgxPaginationModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
