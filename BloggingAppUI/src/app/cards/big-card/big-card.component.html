@@ -5,19 +5,23 @@
         </div>
         <div class="col-md-5 cardbody pd-rt-lt-0">
             <div class="container">
-                <h1>
+                <h3 class="cardheading">
                     {{blogObject.blogHeading}}
-                </h1>
+                </h3>
                 <br>
                 <p>
                     {{blogObject.blogBrief}}
                 </p>
-                <h4 class="cardauthor">
-                    {{blogObject.blogAuthor}}
-                    {{blogObject.blogDateTimeStamp | date : "dd/MM/yyyy"}}
-                </h4>
+                <br>
+                
             </div>
             
+            <h5 class="cardauthor">
+                {{blogObject.blogAuthor}}
+                <br>
+                {{blogObject.blogDateTimeStamp | date : "dd/MM/yyyy"}}
+            </h5>
+
         </div>
     </div>
 </div>

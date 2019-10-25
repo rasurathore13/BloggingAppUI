@@ -1,7 +1,7 @@
 .customcard{
     margin-top: 20px;
     margin-bottom: 20px;
-    transition: box-shadow 0.5s;
+    transition: box-shadow 0.4s;
     box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
 }
 
@@ -17,17 +17,31 @@
 }
 
 .cardimage{
-    height: 400px;
+    min-height: 400px;
+    height: 100%;
     width:100%;
 }
 
 .cardbody{
     background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative
 }
 .cardbody .container{
-    padding: 40px 50px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
 }
+.cardheading{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
 .cardauthor{
     position: absolute;
-    bottom: 5%;
+    bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
