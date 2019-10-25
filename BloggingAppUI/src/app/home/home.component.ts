@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   isNewUser = true;
 
   constructor(private http: HttpClient, private router: Router) { 
-    if(sessionStorage.getItem('auth_token') !== null) {
+    if(localStorage.getItem('auth_token') !== null) {
       this.isNewUser = false;
     }
   }
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.reload();
   }
 

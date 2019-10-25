@@ -2,18 +2,17 @@
 <div class="h-100">
     <div class="hero-image">
         <div class="hero-text">
-            <p>
-                From Tutorials to experiences,<br>
-                I share for you to read.
+            <p style="font-family">
+                Down You go
             </p>
         </div>
     </div>
         <div class="container pd-bt-5">
             <div *ngFor="let blogObject of blogList | paginate: {itemsPerPage: 1, currentPage: pageNumber} ">
-                <app-big-card [blogObject]="blogObject">
+                <app-big-card [blogObject]="blogObject" (click)="openBlog(blogObject.blogId)">
                 </app-big-card>
             </div>
-            <pagination-controls (pageChange)="pageNumber = $event" class="centre">
+            <pagination-controls (pageChange)="pageChangeEvent($event)" class="centre">
             </pagination-controls>
         </div>
 </div>

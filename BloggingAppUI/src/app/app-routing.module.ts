@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../app/login/login.component';
 import { RegisterComponent } from '../app/register/register.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   { path:'', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'blog/:blogId', component: BlogComponent }
 ];
 
 @NgModule({

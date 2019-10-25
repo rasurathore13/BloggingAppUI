@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BigCardComponent } from './cards/big-card/big-card.component';
 import { MediumCardComponent } from './cards/medium-card/medium-card.component';
 import { SmallCardComponent } from './cards/small-card/small-card.component';
+import { BlogComponent } from './blog/blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { SmallCardComponent } from './cards/small-card/small-card.component';
     DashboardComponent,
     BigCardComponent,
     MediumCardComponent,
-    SmallCardComponent
+    SmallCardComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router) {
-    if(sessionStorage.getItem('auth_token') !== null) {
+    if(localStorage.getItem('auth_token') !== null) {
       router.navigate(['/dashboard']);
     }
    }
