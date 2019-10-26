@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import  { QuillModule } from 'ngx-quill';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
     AppRoutingModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
+    QuillModule.forRoot(),
     NgxPaginationModule,
     FormsModule,
   ],

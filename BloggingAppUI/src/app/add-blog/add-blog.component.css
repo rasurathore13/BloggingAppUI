@@ -1,0 +1,9 @@
+.addblogform{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.formsubmit{
+    width: 100%;
+}

@@ -1,9 +1,83 @@
 <title>Add Blog</title>
 <div class="container">
     <div class="row">
-        <div class="col-md-5">
-            <form #f="ngForm">
+        <div class="col-md-12">
+            <form #addingblogform="ngForm" (ngSubmit)="addingblogform.valid && onSubmit()" class="addblogform">
+
+                <div class="form-group">
+                    <label class="form-label" for="heading">Enter the blog Heading</label>
+                    <input type="text" name="blogHeading" [(ngModel)]="blogHeading" id="heading"
+                     class="form-control" placeholder="Enter within 150 charcters" maxlength="150"
+                     #heading="ngModel"
+                     required
+                    >
+                    <div *ngIf="addingblogform.submitted && heading.invalid" class="text-danger">
+                        Improper Heading
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="brief">Enter the blog Brief</label>
+                    <input type="text" name="blogBrief" [(ngModel)]="blogBrief" id="brief" class="form-control"
+                    placeholder="Enter within 250 charcters" maxlength="250"
+                    #brief="ngModel"
+                    required
+                    >
+                    <div *ngIf="addingblogform.submitted && brief.invalid" class="text-danger">
+                        Improper Brief
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="author">Enter the blog Author</label>
+                    <input type="text" name="blogAuthor" [(ngModel)]="blogAuthor" id="author" class="form-control"
+                    placeholder="Enter within 50 charcters" maxlength="50"
+                    #author="ngModel"
+                    required
+                    >
+                    <div *ngIf="addingblogform.submitted && author.invalid" class="text-danger">
+                        Improper Author
+                    </div>
+                </div>
                 
+                <div class="form-goup">
+                    <label class="form-label" for="url">
+                        Use an existing Image Url
+                        <input type="radio" name="blogMainImage" class="form-control" value="url" id="url"
+                        [(ngModel)]="blogMainImageRadioButton">
+                    </label>
+
+                    <label class="form-label" for="url">
+                        Upload an image
+                        <input type="radio" name="blogMainImage" class="form-control" value="image" id="image"
+                            [(ngModel)]="blogMainImageRadioButton">
+                    </label>
+                </div>
+                    
+
+                <div class="form-group">
+                    <label class="form-label" for="mainImageUrl">Enter the blog Main Image Url</label>
+                    <input type="text" name="blogMainImageUrl" [(ngModel)]="blogMainImageUrl" id="mainImageUrl" class="form-control"
+                    placeholder="Enter within 1000 charcters" maxlength="1000"
+                    #image="ngModel"
+                    required
+                    >
+                    <div *ngIf="addingblogform.submitted && image.invalid" class="text-danger">
+                        Improper Image Link
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="editorValue">Write the blog</label>
+                    <quill-editor 
+                        name="editorValue" 
+                        id="editorValue" 
+                        (onEditorCreated)="getEditorReference($event)"
+                        [(ngModel)]="blogBody">
+                    </quill-editor>
+                </div>
+                <input class="formsubmitbutton" type="submit" class="btn btn-primary">
+                <br>
             </form>
         </div>
     </div>
