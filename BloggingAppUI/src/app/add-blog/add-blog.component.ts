@@ -35,6 +35,9 @@ export class AddBlogComponent implements OnInit {
               private _afstorage: AngularFireStorage) { }
 
   ngOnInit() {
+    if(localStorage.getItem('auth_token') === null) {
+      this._router.navigate(['/dashboard']);
+    } 
   }
 
   uploadMainImageFunc() {
@@ -70,7 +73,7 @@ export class AddBlogComponent implements OnInit {
           if (!this.uploadMainImage) {
             this.uploadedImageUrl = url;
             const range = this.editorReference.getSelection();
-            const img = '<img src="' + this.uploadedImageUrl + '">';
+            const img = "<img src='"+this.uploadedImageUrl+"' width='100%'>";
             this.editorReference.clipboard.dangerouslyPasteHTML(range.index, img);
           } else {
             this.blogMainImageUrl = url;

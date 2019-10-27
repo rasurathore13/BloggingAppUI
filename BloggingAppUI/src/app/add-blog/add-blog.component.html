@@ -48,8 +48,8 @@
                             Upload Main Image
                         </button>
                     </div>
-                    <div *ngIf="blogMainImageUrl" class="text-primary">
-                        <a href={{blogMainImageUrl}} target="_blank">{{blogMainImageUrl}}</a>
+                    <div *ngIf="blogMainImageUrl" class="text-primary blogimageurl">
+                            <a href={{blogMainImageUrl}} target="_blank">{{blogMainImageUrl}}</a>
                     </div>
                     <div *ngIf="addingblogform.submitted && !blogMainImageUrl" class="text-danger">
                         Improper Image Link
@@ -79,8 +79,12 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Upload an Image</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div *ngIf="!uploadProgressPercentage">
+                    <h4 class="modal-title">Upload an Image</h4>
+                </div>
+                <div *ngIf="uploadProgressPercentage">
+                    <h4 class="modal-title">Uploading...</h4>
+                </div>
             </div>
 
             <!-- Modal body -->
