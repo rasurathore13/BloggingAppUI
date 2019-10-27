@@ -47,7 +47,6 @@ export class AddBlogComponent implements OnInit {
 
   getEditorReference(editorRef: any) {
     this.editorReference = editorRef;
-    console.log(this.editorReference);
     const toolbar = this.editorReference.getModule('toolbar');
     toolbar.addHandler('image', this.imageHandler.bind(this));
   }

@@ -12,17 +12,17 @@ export class AddBlogService {
     constructor(private _http: HttpClient) { }
 
     createAuthorization() {
-        let headers = new HttpHeaders();
-        headers.append('Authorization', 'bearer '+localStorage.getItem('auth_token'));
-        headers.append('Content-Type','application/json')
-        return headers;
+        let requestHeaders : HttpHeaders = new HttpHeaders();
+        requestHeaders = requestHeaders.append('Authorization', 'Bearer '+localStorage.getItem('auth_token'));
+        requestHeaders = requestHeaders.append('Content-Type','application/json');
+        return requestHeaders;
     }
 
     addBlog(blogInfo: any) {
         let url = this.env.BlogAPIUrl;
         url = url.concat('Blog/AddBlog');
-        const headers = this.createAuthorization();
-        return this._http.post(url, blogInfo, {headers});
+        const requestHeaders = this.createAuthorization();
+        return this._http.post(url, blogInfo, { headers: requestHeaders});
     }
 
 }
