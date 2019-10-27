@@ -11,7 +11,16 @@
     position: relative;
     width: 100%;
 }
+.pd{
+    padding: 30px;
+}
 .blogauthor{
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
+}
+.blogbody{
+    font-family: 'Montserrat', sans-serif;
+}
+.blogdetails{
+    padding-bottom: 25px;
 }

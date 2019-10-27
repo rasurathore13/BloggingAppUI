@@ -7,3 +7,7 @@
 .formsubmit{
     width: 100%;
 }
+
+.modal-header .close {
+    display: none;
+}

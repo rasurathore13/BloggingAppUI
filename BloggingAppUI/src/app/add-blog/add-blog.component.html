@@ -39,30 +39,19 @@
                         Improper Author
                     </div>
                 </div>
-                
-                <div class="form-goup">
-                    <label class="form-label" for="url">
-                        Use an existing Image Url
-                        <input type="radio" name="blogMainImage" class="form-control" value="url" id="url"
-                        [(ngModel)]="blogMainImageRadioButton">
-                    </label>
-
-                    <label class="form-label" for="url">
-                        Upload an image
-                        <input type="radio" name="blogMainImage" class="form-control" value="image" id="image"
-                            [(ngModel)]="blogMainImageRadioButton">
-                    </label>
-                </div>
-                    
-
+               
                 <div class="form-group">
-                    <label class="form-label" for="mainImageUrl">Enter the blog Main Image Url</label>
-                    <input type="text" name="blogMainImageUrl" [(ngModel)]="blogMainImageUrl" id="mainImageUrl" class="form-control"
-                    placeholder="Enter within 1000 charcters" maxlength="1000"
-                    #image="ngModel"
-                    required
-                    >
-                    <div *ngIf="addingblogform.submitted && image.invalid" class="text-danger">
+                    <label class="form-label" for="mainImageUrl">Upload Blog Main Image</label>
+                    <br>
+                    <div *ngIf="!blogMainImageUrl">
+                        <button type="button" class="btn btn-primary btn-large" (click)="uploadMainImageFunc()">
+                            Upload Main Image
+                        </button>
+                    </div>
+                    <div *ngIf="blogMainImageUrl" class="text-primary">
+                        <a href={{blogMainImageUrl}} target="_blank">{{blogMainImageUrl}}</a>
+                    </div>
+                    <div *ngIf="addingblogform.submitted && !blogMainImageUrl" class="text-danger">
                         Improper Image Link
                     </div>
                 </div>
@@ -79,6 +68,43 @@
                 <input class="formsubmitbutton" type="submit" class="btn btn-primary">
                 <br>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="imageUploadModal" #imageUploadModal [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Upload an Image</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div *ngIf="!uploadProgressPercentage">
+                    <input type="file" name="image" accept=".jpg, .png, .jpeg" 
+                    (change)="uploadImage($event)"
+                    #uploadImageInputTag>
+                </div>
+                <div *ngIf="uploadProgressPercentage">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            [style.width]="(uploadProgressPercentage | async) + '%'" 
+                            [attr.aria-valuenow]="(uploadProgressPercentage | async)" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closeImageUploadModal()">Close</button>
+            </div>
+
         </div>
     </div>
 </div>

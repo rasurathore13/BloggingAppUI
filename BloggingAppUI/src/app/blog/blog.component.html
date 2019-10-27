@@ -10,21 +10,24 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="container">
-                <div class="row">
+            <div class="container pd">
+                <div class="row blogdetails">
                     <div class="col-md-12">
                         <h2 class="blogmainheading">
                             {{blogDetailsObject.blogHeading}}
                             <br>
                         </h2>
                         <span class="blogauthor">
-                            {{blogDetailsObject.blogAuthor}} , {{blogDetailsObject.blogDateTimeStamp | date : "d MMMM y"}}
+                            {{blogDetailsObject.blogAuthor}} ,
+                             {{blogDetailsObject.blogDateTimeStamp | date : "d MMMM y"}}
                         </span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <div [innerHTML]="blogDetailsObject.blogBody" class="blogbody">
 
+                        </div>
                     </div>
                 </div>
             </div>

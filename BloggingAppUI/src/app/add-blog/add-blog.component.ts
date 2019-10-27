@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AddBlogService } from './add-blog.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators'
 
 @Component({
   selector: 'app-add-blog',
@@ -15,25 +18,71 @@ export class AddBlogComponent implements OnInit {
   blogAuthor: string;
   blogMainImageUrl: string;
   editorReference: any;
+  showModal = false;
+  dataSaved = false;
+
+  uploadMainImage = false;
+
+  uploadProgressPercentage: Observable<number>;
+  uploadedImageUrl: Observable<string> = null;
+  uploadedImageSnapShot: Observable<any>;
+  angularFireReference: AngularFireStorageReference;
+  angularFireTask: AngularFireUploadTask;
+
 
   constructor(private _addBlogService: AddBlogService,
-    private _router: Router) { }
+              private _router: Router,
+              private _afstorage: AngularFireStorage) { }
 
   ngOnInit() {
   }
 
-  getEditorReference(editorReference: any) {
-    this.editorReference = editorReference;
+  uploadMainImageFunc() {
+    this.uploadMainImage = true;
+    this.showModal = true;
+  }
 
+  getEditorReference(editorRef: any) {
+    this.editorReference = editorRef;
     console.log(this.editorReference);
     const toolbar = this.editorReference.getModule('toolbar');
-    toolbar.addHandler('image', this.imageHandler);
+    toolbar.addHandler('image', this.imageHandler.bind(this));
   }
 
   imageHandler() {
-    const range = this.editorReference.getSelection();
-    const img = '<a href="https://image.flaticon.com/icons/png/128/126/126477.png" data-lightbox="image-1" data-title="My caption"> <div> <img src="https://image.flaticon.com/icons/png/128/126/126477.png" height="50"/> </div> </a>';
-    this.editorReference.clipboard.dangerouslyPasteHTML(range.index, img);
+    this.showModal = true;
+  }
+
+  closeImageUploadModal() {
+    this.uploadMainImage = false;
+    this.showModal = false;
+  }
+
+  uploadImage(event: any) {
+    if(event !== null) {
+      const path = event.target.files[0].name;
+      this.angularFireReference = this._afstorage.ref(path);
+      this.angularFireTask = this.angularFireReference.put(event.target.files[0]);
+      this.uploadProgressPercentage = this.angularFireTask.percentageChanges();
+      this.angularFireTask.snapshotChanges().pipe(finalize(() => {
+        this.angularFireReference.getDownloadURL().subscribe(url => {
+          
+          if (!this.uploadMainImage) {
+            this.uploadedImageUrl = url;
+            const range = this.editorReference.getSelection();
+            const img = '<img src="' + this.uploadedImageUrl + '">';
+            this.editorReference.clipboard.dangerouslyPasteHTML(range.index, img);
+          } else {
+            this.blogMainImageUrl = url;
+          }
+          
+          this.uploadedImageUrl = null;
+          this.uploadProgressPercentage = null;
+          this.closeImageUploadModal();
+        });
+      })).subscribe();
+
+    }
   }
 
   onSubmit() {
@@ -46,7 +95,8 @@ export class AddBlogComponent implements OnInit {
     }
     this._addBlogService.addBlog(blogInfo).subscribe(response => {
       window.alert("The blog was added successfully");
-      const navigateUrl = '/Blog/' + response['blogId'];
+      const navigateUrl = 'dashboard';
+      this.dataSaved = true;
       this._router.navigate([navigateUrl]);
     },
       err => {

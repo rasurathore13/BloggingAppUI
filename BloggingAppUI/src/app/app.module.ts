@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import  { QuillModule } from 'ngx-quill';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +44,8 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
     QuillModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     NgxPaginationModule,
     FormsModule,
   ],

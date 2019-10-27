@@ -17,6 +17,7 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this._blogService.getBlogDetails(this._activatedRoute.snapshot.params['blogId']).subscribe(response => {
         this.blogDetailsObject = response;
+        window.scrollTo(0,0);
       });
   }
 
