@@ -30,5 +30,8 @@ export class HomeComponent implements OnInit {
     window.location.reload();
   }
 
+  addBlog() {
+    this.router.navigate(['/addblog']);
+  }
 
 }
