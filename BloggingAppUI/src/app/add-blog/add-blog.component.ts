@@ -35,7 +35,7 @@ export class AddBlogComponent implements OnInit {
               private _afstorage: AngularFireStorage) { }
 
   ngOnInit() {
-    if(localStorage.getItem('auth_token') === null) {
+    if(sessionStorage.getItem('auth_token') === null) {
       this._router.navigate(['/dashboard']);
     } 
   }

@@ -13,7 +13,7 @@ export class AddBlogService {
 
     createAuthorization() {
         let requestHeaders : HttpHeaders = new HttpHeaders();
-        requestHeaders = requestHeaders.append('Authorization', 'Bearer '+localStorage.getItem('auth_token'));
+        requestHeaders = requestHeaders.append('Authorization', 'Bearer '+sessionStorage.getItem('auth_token'));
         requestHeaders = requestHeaders.append('Content-Type','application/json');
         return requestHeaders;
     }

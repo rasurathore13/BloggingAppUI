@@ -17,17 +17,17 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this._dashboradService.getAllBlogs().subscribe(response => {
       this.blogList = response;
-      if(localStorage.getItem('pageNumber') !== null) {
-        this.pageNumber = parseInt(localStorage.getItem('pageNumber'));
+      if(sessionStorage.getItem('pageNumber') !== null) {
+        this.pageNumber = parseInt(sessionStorage.getItem('pageNumber'));
       } else {
         this.pageNumber = 1;
-        localStorage.setItem('pageNumber', new Number(1).toString());
+        sessionStorage.setItem('pageNumber', new Number(1).toString());
       }
     })
   }
 
   pageChangeEvent(event: number) {
-    localStorage.setItem('pageNumber', event.toString());
+    sessionStorage.setItem('pageNumber', event.toString());
     this.pageNumber = event;
   }
 
