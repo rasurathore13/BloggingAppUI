@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BigCardComponent } from './cards/big-card/big-card.component';
 import { MediumCardComponent } from './cards/medium-card/medium-card.component';
@@ -30,7 +29,6 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
     CustomerLoaderComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
     DashboardComponent,
     BigCardComponent,
     MediumCardComponent,

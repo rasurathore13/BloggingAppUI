@@ -30,8 +30,5 @@ export class HomeComponent implements OnInit {
     window.location.reload();
   }
 
-  register() {
-    this.router.navigate(['/register']);
-  }
 
 }
