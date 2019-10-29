@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../blog/blog.service';
 import { ActivatedRoute } from '@angular/router';
+import { ɵNullViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
 
-  blogDetailsObject: any;
+  blogDetailsObject: any = {
+    "blogHeading": null,
+    "blogMainImageUrl": null,
+    "blogDateTimeStamp": null,
+    "blogBody": null,
+    "blogAuthor": null,
+  };
   blogColor = 'green';
   constructor(private _blogService: BlogService,
               private _activatedRoute: ActivatedRoute) { }
