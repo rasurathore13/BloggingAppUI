@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
 
-  blogDetailsObject = {};
+  blogDetailsObject: any;
   blogColor = 'green';
   constructor(private _blogService: BlogService,
               private _activatedRoute: ActivatedRoute) { }
