@@ -1,6 +1,6 @@
 
 export const environment = {
-  BlogAPIUrl: "http://localhost:5000/api/",
+  BlogAPIUrl: "https://bloggingappapi.azurewebsites.net/api/",
   BlogginAppAuthenticationAPIUrl: "https://bloggingappauthenticationapi.azurewebsites.net/api/",
   production: false,
   firebaseConfig: {
